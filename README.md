@@ -1,14 +1,58 @@
-# Welcome to your CDK TypeScript project
+# Multi Environment Deployments Using AWS CDK
 
-This is a blank project for TypeScript development with CDK.
+This is a companion repo for my youtube video explaining how to deploy CDK projects to multiple AWS environments.
+You can find all the commands and related links I used in the video
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+Youtube Video: https://youtu.be/H7Ynxkk_jss
 
-## Useful commands
+## URLs
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+Git Repo: https://github.com/kheriox-technologies/yt-multi-env-cdk
+
+AWS Profile NPM Package: https://www.npmjs.com/package/awsprofile
+
+Git Branch NPM Package: https://www.npmjs.com/package/git-branch
+
+AWS CDK Feature Flags: https://docs.aws.amazon.com/cdk/v2/guide/featureflags.html
+
+AWS CDK Documentation: https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html
+
+## Commands
+
+### CDK Bootstrap
+
+```
+cdk bootstrap aws://accountnumber/ap-southeast-2
+```
+
+### CDK Initialization
+
+```
+cdk init app --language=typescript
+```
+
+### Git Branch Install
+
+```
+npm i git-branch
+npm i -D @types/git-branch
+```
+
+### CDK Commands
+
+```
+cdk list          # List CDK Stacks
+cdk synth         # Synthesize CDK project to generate CFN template
+cd deploy         # Deploy CDK project
+```
+
+### Git Commands
+
+```
+git add -A && git commit -m "Pushing infrastructure to develop"
+git push -u origin develop
+
+git checkout main
+git merge develop
+git push -u origin main
+```
